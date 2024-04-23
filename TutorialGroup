@@ -1,0 +1,47 @@
+package entity;
+
+import adt.ArrayList;
+import adt.ListInterface;
+import java.io.Serializable;
+
+public class TutorialGroup implements Serializable{
+
+    private String groupId;
+    private Programme programme;
+    private ListInterface<Student> studentList;
+    private ListInterface<Team> teamList;
+
+    public TutorialGroup(String groupId, Programme programme) {
+        this.groupId = groupId;
+        this.programme = programme;
+        this.studentList = new ArrayList<>();
+        this.teamList = new ArrayList<>();
+    }
+
+    public ListInterface<Student> getStudentLists() {
+        return studentList;
+    }
+
+    public ListInterface<Team> getTeamLists() {
+        return teamList;
+    }
+
+    public Programme getProgramme() {
+        return programme;
+    }
+
+    public void setProgramme(Programme program) {
+        this.programme = program;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    @Override
+    public String toString() {
+        return  "groupId='" + groupId + '\''
+                + ", programme=" + programme.getProgrammeName();
+    }
+
+}
